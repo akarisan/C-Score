@@ -56,6 +56,9 @@ foreach($array as $arr_classes => $arr_class){
 }
 print_r($competitors);
 
+//更新前のスコア挿入
+require_once('before_point_move.php');
+
 //チームごとのポイント化呼び出し
 require_once('rank_input.php');
 

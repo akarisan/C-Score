@@ -56,7 +56,35 @@
                 margin: 0 auto;
                 text-align: right;
             }
+            p.text-left{
+                text-align: left;
+                font-size: 80%;
+            }
+            
+            .access{
+                width: 100%;
+                margin-top: 10px;
+                height: auto;
+            }
+            span.live{
+                border: 2px red solid;
+                border-radius: 5px 0;
+                padding: 3px;
+                box-sizing: border-box;
+                margin-left: 10%;
+                color: red;
+                font-style: italic;
+            }
+            p.normal{
+                text-align: left;
+            }
         </style>  
+        
+        <div class="access">
+            <p class="normal"><span class="live">LIVE</span>
+            <span class="realtimeuserscounter"></span>人が観戦しています</p>
+        </div>
+        <br>
         
         <div id="scorelist"></div>
         
@@ -66,5 +94,6 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
         <script src="js/ajax.js"></script>
+        <script src="js/access.js"></script>
     </body>
 </html>
