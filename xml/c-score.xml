@@ -16,9 +16,11 @@
 				<file-name>c-score.json</file-name>
 				<transform method="unicode-text">c-score.xsl</transform>
 			</export>
+			<!--
 			<action>
 				<execute>$style\datapost.cmd $file</execute>
 			</action>
+			-->
 		</command>
 
 	</style>
