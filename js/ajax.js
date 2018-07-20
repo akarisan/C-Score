@@ -6,7 +6,7 @@ function execute(container,accessurl,paramet,method) {
 		{
 			"method": method,
 			"parameters": paramet,
-			frequency: 60, // 1時間ごとに実行
+			frequency: 60, // 1分ごとに実行
 			onSuccess: function(request) {
 				// 成功時の処理を記述
 				// alert('成功しました');

@@ -6,7 +6,7 @@ require_once('db_connect.php');
 $dbh->query("DELETE FROM competitor");
 
 //データをリスト化し、DB挿入
-$comrdy = $dbh->prepare("INSERT INTO competitor (class,rank,name,team) VALUES (:list_class,:list_rank,:list_name,:list_team)");
+$comrdy = $dbh->prepare("INSERT INTO competitor (class,rank,name,team,fixed) VALUES (:list_class,:list_rank,:list_name,:list_team,:list_fixed)");
 
 
 
@@ -19,7 +19,7 @@ foreach($competitors as $competitor_classes => $competitor_class){
     $com_rank_buffer = 0;
     $com_pre_rank = 0;
     
-    foreach($competitor_class as list($list_rank,$list_name,$list_team)){
+    foreach($competitor_class as list($list_rank,$list_name,$list_team,$list_fixed)){
         if(!in_array($list_team,array_column($already,'team'))){
             # 前回確定したチームと同着の場合
             if($list_rank == $com_pre_rank){
@@ -37,6 +37,7 @@ foreach($competitors as $competitor_classes => $competitor_class){
             $comrdy->bindValue(':list_rank',$com_team_rank,PDO::PARAM_INT);
             $comrdy->bindValue(':list_name',$list_name,PDO::PARAM_STR);
             $comrdy->bindValue(':list_team',$list_team,PDO::PARAM_STR);
+            $comrdy->bindValue(':list_fixed',$list_fixed,PDO::PARAM_STR);
             $comrdy->execute();
             array_push($already,array('team'=>$list_team));   
         }

@@ -4,96 +4,31 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>C-Score</title>
-        <link href="https://github.com/necolas/normalize.css/blob/master/normalize.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-        <link href="style.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
-    <body onload="execute('scorelist','php/db_output.php','noparam=noparam','get');">
+    <body onload="execute('scorelist','php/db_output.php','noparam=noparam','get');execute('news-feed','php/fixed_news.php','noparam=noparam','get');">
       
         <style>
-            tr{
-                opacity: 0;
-            }
-            tr:nth-child(1){
-                animation: 10s ease list 0s both;
-            }
-            tr:nth-child(2){
-                animation: 10s ease list 0.5s both;
-            }
-            tr:nth-child(3){
-                animation: 10s ease list 1s both;
-            }
-            tr:nth-child(4){
-                animation: 10s ease list 1.5s both;
-            }
-            tr:nth-child(5){
-                animation: 10s ease list 2s both;
-            }
-            tr:nth-child(6){
-                animation: 10s ease list 2.5s both;
-            }
-            tr:nth-child(7){
-                animation: 10s ease list 3s both;
-            }
-            tr:nth-child(8){
-                animation: 10s ease list 3.5s both;
-            }
-            tr:nth-child(9){
-                animation: 10s ease list 4s both;
-            }
-            tr:nth-child(10){
-                animation: 10s ease list 4.5s both;
-            }
             
-            
-            @keyframes list{
-                10%{opacity: 1}
-                100%{opacity: 1}
-            }
-            
-            p{
-                width: 80%;
-                margin: 0 auto;
-                text-align: right;
-            }
-            p.text-left{
-                text-align: left;
-                font-size: 80%;
-            }
-            
-            .access{
-                width: 100%;
-                margin-top: 10px;
-                height: auto;
-            }
-            span.live{
-                border: 2px red solid;
-                border-radius: 5px 0;
-                padding: 3px;
-                box-sizing: border-box;
-                margin-left: 10%;
-                color: red;
-                font-style: italic;
-            }
-            p.normal{
-                text-align: left;
-            }
         </style>  
         
         <div class="access">
             <p class="normal"><span class="live">LIVE</span>
             <span class="realtimeuserscounter"></span>人が観戦しています</p>
         </div>
-        <br>
+        
+        <hr>
+        
+        <marquee id="news-feed" height="20px" width="100%" behavior="scroll" direction="left" scrollamount="20">Now Loading...</marquee>
+        
+        <hr>
         
         <div id="scorelist"></div>
-        
-        
-        
-        
         
         <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
         <script src="js/ajax.js"></script>
         <script src="js/access.js"></script>
+        <script src="js/materialize.min.js"></script>
     </body>
 </html>

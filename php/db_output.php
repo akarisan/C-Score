@@ -19,6 +19,7 @@ foreach($row as $rows){
     $bef_score = $rows['bef_score'];    #前回のスコア
     $team = $rows['team'];              #チーム名を取り出し
     $alert = "";                        #チーム内の貢献者リスト
+    $add_class = "";                    #アニメ用
     $move_score = "";                   #スコア変動の視覚化
     $df_score = 0;                      #スコア差    
     //矢印の振り分け
@@ -43,7 +44,7 @@ foreach($row as $rows){
         $alert = "{$alert}<p>《{$com_class}》{$com_rank}位：{$com_name}</p>";
     }
     
-    $middle = "{$middle}<tr><td><h5>{$ranking}<h5></td><td><h5>{$team}</h5>{$alert}</td><td><h5>{$score}pt</h5><p class=\"text-left\">{$move_score}</p></td></tr>";
+    $middle = "{$middle}<tr><td><h5>{$ranking}</h5></td><td><h5>{$team}</h5>{$alert}</td><td><h5>{$score}pt</h5><p class=\"text-left\">{$move_score}</p></td></tr>";
     $ranking++;
 }
 
@@ -52,7 +53,7 @@ $time = date("Y年m月d日H時i分s秒");
 $date = "{$time}　更新";
 
 //結合
-$first = "<p>{$date}</p><br><table class=\"container centered\"><thead><tr><th>順位</th><th>チーム名</th><th>ポイント</th></tr></thead><tbody id=\"scorelist\">";
+$first = "<p>{$date}</p><br><table class=\"container centered\"><tbody id=\"scorelist\">";
 $last = "</tbody></table>";
 $print_html = "{$first}{$middle}{$last}";
 

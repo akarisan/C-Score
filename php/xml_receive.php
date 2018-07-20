@@ -40,21 +40,27 @@ $competitors = array();
 foreach($array as $arr_classes => $arr_class){
     $class_arr = array();
     $competitor_arr = array();
+    $news_arr = array();
     $class_rank = 0;
     $class_team = "";
     $class_name = $arr_classes;
-    foreach($arr_class as list($class_rank,$class_team,$class_competitor)){
+    foreach($arr_class as list($class_rank,$class_team,$class_competitor,$class_fixed)){
         if($class_rank === "参" or $class_rank === "" or $class_team === ""){
             
         }else{
-            $class_rank = intval($class_rank); array_push($class_arr,array($class_team,$class_rank));
-            array_push($competitor_arr,array($class_rank,$class_competitor,$class_team));
+            $class_rank = intval($class_rank);
+            if($class_fixed === "rank fixed"){
+               $class_fix = "fixed";
+            }else{
+                $class_fix = "finish";
+            }
+            array_push($class_arr,array($class_team,$class_rank));
+            array_push($competitor_arr,array($class_rank,$class_competitor,$class_team,$class_fix));
         }
     }
     $classes = $classes + array($arr_classes => $class_arr);
     $competitors = $competitors + array($arr_classes => $competitor_arr);
 }
-print_r($competitors);
 
 //更新前のスコア挿入
 require_once('before_point_move.php');

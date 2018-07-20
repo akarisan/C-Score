@@ -20,6 +20,7 @@
 					"<xsl:value-of select="@rank" />"
                 , "<xsl:apply-templates select="/mulka/export/competitors/competitor[@object-id=$competitor-id]/club"/>"
                 , "<xsl:value-of select="/mulka/export/competitors/competitor[@object-id=$competitor-id]/name" />"
+                ,"<xsl:value-of select="/mulka/export/competitors/competitor[@object-id=$competitor-id]/status/@type" />"
 				]
 			</xsl:for-each>
 		]
