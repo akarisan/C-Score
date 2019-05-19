@@ -19,11 +19,13 @@ if($access_last == false){
 }
 
 //DBから点数昇順でデータ取り出す
-$query = "SELECT * FROM rank ORDER BY score DESC LIMIT 0, 10";
+$query = "SELECT * FROM rank ORDER BY score DESC";
 $row = $dbh->query($query);
 
-$ranking = 1;   #チームごとの順位
+$ranking = 0;   #チームごとの順位
 $max_score = 0;
+$same_rank = 1;
+$other_score = 0;
 
 //取り出したデータを変数にHTMLタグとともに格納
 foreach($row as $rows){
@@ -59,7 +61,6 @@ foreach($row as $rows){
         $line_graf = "";
     }
     
-    
     //DBからチーム名で取得
     $col = $dbh->query("SELECT * FROM competitor WHERE team LIKE '$team'");
     foreach($col as $cols){
@@ -82,7 +83,9 @@ foreach($row as $rows){
         $same_rank = 1;
     }
     
-    $middle = "{$middle}<tr {$add_class_anime}><td><h5>{$ranking}</h5></td><td id=\"img-logo\"><img src=\"{$path}\"></td><td><h5>{$team}</h5><details><summary>ポイント詳細</summary><p>{$alert}</p></details></td><td><h5>{$score}pt<small class=\"text-center\">{$move_score}</small></h5>{$line_graf}</td></tr>";
+    $middle = "{$middle}<tr {$add_class_anime}><td><h5>{$ranking}</h5></td><td id=\"img-logo\"><img src=\"{$path}\"></td><td><h5>{$team}</h5><details><summary>ポイント詳細</summary><p style=\"display:block;\">{$alert}</p></details></td><td><h5>{$score}pt<small class=\"text-center\">{$move_score}</small></h5>{$line_graf}</td></tr>";
+    
+    
 }
 
 //最終更新時刻
