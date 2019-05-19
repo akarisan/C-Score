@@ -8,19 +8,9 @@
         <link rel="stylesheet" href="css/materialize.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body onload="execute('scorelist','php/db_output.php','noparam=noparam','get');">
+    <body onload="execute('scorelist','php/db_output_all.php','noparam=noparam','get');">
         
         <style>
-            a ~ p{
-                display: block;
-                text-align: left;
-                color: black;
-                padding-left: 10px;
-            }
-            a:active ~ p,a:hover ~ p{
-                display: block;
-            }
-            
             img,td#img-logo{
                 width: 50px;
             }
@@ -47,34 +37,19 @@
                 transition: .5s;
             }
         </style>
-        
-        
+
         
         <div class="access">
             <p class="normal"><span class="live">LIVE</span>
-            <span class="realtimeuserscounter"></span>人が観戦しています　<a href="other.html" id="com-link">全チームを見る</a></p>
-            
+            <span class="realtimeuserscounter"></span>人が観戦しています　<a href="/cs/" id="com-link">ランキングに戻る</a></p>
         </div>
         
         <hr>
         
         <div id="scorelist" style="margin-bottom: 70px;"></div>
         
-        <footer class="container">
-            <p>
-            ME WE<br>
-            1位：40pt　2～3位：30pt　4～6位：20pt 7~12位：10pt
-            </p>
-            <p>
-            MA MS MV MXV MJ MXJ WA WS WXV WJ WXJ<br>
-            1位：30pt　2～3位：20pt　4～6位：10pt
-            </p>
-            <p>
-            新人<br>
-            1位：5pt　2位：3pt　3位：1pt
-            </p>
 
-        </footer>
+        
         
         <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
         <script src="js/ajax.js"></script>
